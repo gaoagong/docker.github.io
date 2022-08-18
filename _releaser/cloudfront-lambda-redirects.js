@@ -6,7 +6,7 @@ exports.handler = (event, context, callback) => {
 
     const redirects = JSON.parse(`{{.RedirectsJSON}}`);
     for (let key in redirects) {
-        if (key !== request.uri) {
+        if (key !== request.uri && key !== `${request.uri}/`) {
             continue;
         }
         //console.log(`redirect: ${request.uri} to ${redirects[key]}`);
